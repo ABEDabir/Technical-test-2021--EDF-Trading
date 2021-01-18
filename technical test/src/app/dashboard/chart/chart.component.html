@@ -1,0 +1,14 @@
+<div *ngIf="isHighcharts&&relevantData" >
+
+
+  <highcharts-chart id="lineContainer" [constructorType]="chartConstructor" [(update)]="updateFlag"
+                    [Highcharts]="Highcharts" [callbackFunction]="lineChartCallback"
+                    [oneToOne]="true" [options]="lineChartOptions"
+                    ></highcharts-chart>
+
+  <br>
+  <highcharts-chart id="barContainer" [constructorType]="chartConstructor" [(update)]="updateFlag"
+                    [Highcharts]="Highcharts" [callbackFunction]="barChartCallback"
+                    [oneToOne]="true" [options]="barChartOptions"
+                  ></highcharts-chart>
+</div>

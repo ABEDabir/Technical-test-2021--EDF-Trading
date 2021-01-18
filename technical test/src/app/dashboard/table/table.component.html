@@ -1,0 +1,16 @@
+
+<div *ngIf="relevantData"  >
+  <hot-table
+    licenseKey='non-commercial-and-evaluation'
+    class="hot"
+    [data]="relevantData"
+    [colHeaders]="true"
+    [rowHeaders]="true"
+    [settings]="hotSettings"
+  >
+
+    <hot-column *ngFor="let i of relevantData[0] | keyvalue" data={{i.key}} [readOnly]="true" title={{i.key}}></hot-column>
+
+  </hot-table>
+
+</div>

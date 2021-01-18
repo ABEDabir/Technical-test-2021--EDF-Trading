@@ -1,0 +1,30 @@
+<div class="p-card">
+  <div class="p-grid ">
+    <div class="p-col-4">
+      <div class="p-grid ">
+        <p-fileUpload   #fileImportInput mode="basic" name="File Upload" accept=".csv"
+                      maxFileSize="1000000" customUpload="true" (onSelect)="loadCsvData($event)"
+                      [auto]="false" uploadLabel="upload" chooseLabel="Load Csv file"></p-fileUpload>
+        <p-button  icon="pi pi-trash" (click)="clearFile()"></p-button>
+
+      </div>
+
+
+    </div>
+
+    <div class="p-col-2" *ngIf="showDatesAndCountries">
+      <p-calendar placeholder="Choose the dates" showIcon="true"[(ngModel)]="rangeDates" [defaultDate]="defaultDate" [minDate]="startDateOnCsv"
+                  [maxDate]="endDateOnCsv"
+                  selectionMode="range"
+                  [readonlyInput]="true" inputId="range" (onClose)="closeCalendar()"></p-calendar>
+    </div>
+    <div class="p-col-6" *ngIf="showDatesAndCountries">
+      <p-multiSelect class="p-field" [options]="countries" [(ngModel)]="selectedCountries"
+                     defaultLabel="Select Countries"
+                     optionLabel="countryCode" display="chip" (onChange)="selectCountries()"></p-multiSelect>
+    </div>
+
+  </div>
+
+</div>
+

@@ -1,0 +1,45 @@
+
+<div class="p-grid">
+
+  <div class="p-col-12">
+
+    <div class="p-col-4 p-md-4 " pDroppable="TaskIm" (onDrop)="dropTodo($event)">
+
+      <div *ngFor="let m of allTasks" pDraggable="TaskIm"  (onDragStart)="dragStart($event,m)" (onDragEnd)="dragEnd($event)"  >
+        <div *ngIf="m.status=='todo'" >
+          <p-card header="{{m.name}}" subheader="By {{m.owner}}">
+            <p>{{m.description}}</p>
+            <p>Status : {{m.status}}</p>
+          </p-card>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="p-col-4 p-md-4 " pDroppable="TaskIm" (onDrop)="dropOngoing($event)">
+      <div *ngFor="let m of allTasks" pDraggable="TaskIm"  (onDragStart)="dragStart($event,m)" (onDragEnd)="dragEnd($event)" >
+        <div *ngIf="m.status=='ongoing'">
+          <p-card header="{{m.name}}" subheader="By {{m.owner}}">
+            <p>{{m.description}}</p>
+            <p>Status : {{m.status}}</p>
+          </p-card>
+        </div>
+
+
+      </div>
+
+    </div>
+    <div class="p-col-4 p-md-4 " pDroppable="TaskIm" (onDrop)="dropCompleted($event)">
+      <div *ngFor="let m of allTasks" pDraggable="TaskIm"  (onDragStart)="dragStart($event,m)" (onDragEnd)="dragEnd($event)" >
+        <div *ngIf="m.status=='completed'">
+          <p-card header="{{m.name}}" subheader="By {{m.owner}}">
+            <p>{{m.description}}</p>
+            <p>Status : {{m.status}}</p>
+          </p-card>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

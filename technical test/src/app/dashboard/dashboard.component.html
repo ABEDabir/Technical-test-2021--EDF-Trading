@@ -1,0 +1,19 @@
+<div (mouseenter)="getData()" (mouseleave)="getData()"  >
+  <p-button class="p-col-4"  [label]="displayT" icon="pi pi-desktop"
+            (click)="displayDataTable()"></p-button>
+  <p-button class="p-col-4" [label]="displayC " icon="pi pi-chart-line"
+            (click)="displayDataChart()"></p-button>
+
+  <div *ngIf="relevantData.length>1" class="p-grid">
+
+    <app-table *ngIf="displayTable" class="p-col pad" [relevantData]="relevantData"></app-table>
+    <app-chart *ngIf="displayChart" class="p-col pad" [relevantData]="relevantData"></app-chart>
+  </div>
+</div>
+
+
+
+
+
+
+
